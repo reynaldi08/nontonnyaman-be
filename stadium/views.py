@@ -20,7 +20,7 @@ def add_stadium(request):
         return render(request, 'stadium.html', context)
 
 @csrf_exempt
-def view_detail_stadium(request, input_id):
+def view_detail_stadium(request,input_id):
     stadium = Stadium.objects.get(id=input_id)
     stadium_list = []
     stadium_list.append({
@@ -41,6 +41,7 @@ def view_all_stadium(request):
     stadium_list = []
     for stadium in stadiums:
         stadium_list.append({
+            'stadium_id' : stadium.id,
             'stadium_name' : stadium.stadium_name,
             'stadium_location' : stadium.stadium_name,
             'stadium_text': stadium.stadium_text,
